@@ -221,9 +221,186 @@ html,body{background:#0a0a0a;-webkit-font-smoothing:antialiased}
   body{display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px 0;min-height:100vh}
   .slide{box-shadow:0 8px 40px rgba(0,0,0,.3);transform-origin:center top}
 }
-@media screen and (max-width:640px){
-  body{gap:12px;padding:12px 0}
-  .slide{box-shadow:0 4px 20px rgba(0,0,0,.4);border-radius:8px}
+
+/* MOBILE LAYOUT — under 900px, slides become natural-sized cards */
+@media screen and (max-width:899px){
+  body{gap:8px;padding:8px;background:#0a0a0a}
+  
+  .slide{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    min-height:auto;
+    transform:none !important;
+    margin:0 !important;
+    box-shadow:0 4px 20px rgba(0,0,0,.4);
+    border-radius:6px;
+    flex-direction:column;
+  }
+  
+  /* Slide chrome */
+  .slide-nav{top:14px;right:18px;font-size:10px;gap:8px}
+  .slide-label{top:14px;left:18px;font-size:9px;letter-spacing:.14em}
+  .logo-strip{top:14px}
+  .logo-strip img{height:14px}
+  .slide-footer{position:relative;bottom:auto;left:auto;right:auto;margin:20px 18px 16px;padding-top:12px;border-top:1px solid var(--border);font-size:9px;display:flex}
+  
+  /* Common content padding */
+  .content{padding:54px 20px 16px !important}
+  .section-title{font-size:24px !important;white-space:normal;line-height:1.15;margin-bottom:10px}
+  .section-sub{font-size:13px;line-height:1.5;margin-bottom:14px}
+  
+  /* COVER */
+  .cover{padding:48px 20px 20px !important;min-height:auto}
+  .cover .slide-footer{color:rgba(255,255,255,.5)}
+  .cover-label{font-size:10px;letter-spacing:.18em;margin-bottom:14px}
+  .cover-pre{font-size:18px;margin-bottom:12px}
+  .cover h1{font-size:54px;margin-bottom:18px;line-height:.95}
+  .cover p{font-size:14px;margin-bottom:32px;line-height:1.5}
+  .cover-meta{flex-direction:column;gap:14px;padding-top:18px}
+  .cover-meta-item .lbl{font-size:9px;margin-bottom:3px}
+  .cover-meta-item .val{font-size:13px}
+  
+  /* LOGO HERO */
+  .logo-hero{padding:80px 20px 60px !important;align-items:center;justify-content:center;min-height:auto}
+  .logo-hero img{width:80%;max-width:none;margin:40px 0}
+  .logo-hero .slide-footer{margin-top:30px;width:calc(100% - 36px)}
+  
+  /* LOGO GRID 6 cards */
+  .logo-grid-slide{
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:none;
+    gap:10px;
+    margin-top:14px;
+    min-height:auto;
+    flex:none
+  }
+  .logo-card{padding:24px 16px;min-height:auto;gap:12px}
+  .logo-card img{width:70%;max-height:50px}
+  .logo-card .logo-tag{top:10px;left:10px;font-size:8px;padding:3px 8px}
+  .logo-card .logo-use{font-size:11px}
+  
+  /* COLOR PALETTE */
+  .color-section{margin-bottom:16px}
+  .color-section-label{font-size:10px;margin-bottom:8px}
+  .bordeaux-hero{grid-template-columns:1fr 1fr;gap:8px}
+  .swatch-big{grid-column:1 / -1}
+  .swatch-big .sw-color{height:120px}
+  .swatch-big .sw-info{padding:14px 16px}
+  .swatch-big .sw-name{font-size:18px}
+  .swatch-big .sw-hex{font-size:13px}
+  .swatch-big .sw-use{font-size:10px}
+  .swatch .sw-color{height:60px}
+  .swatch .sw-info{padding:8px 10px}
+  .swatch .sw-name{font-size:11px}
+  .swatch .sw-hex{font-size:9px}
+  .gold-row{grid-template-columns:1fr 1fr;gap:8px}
+  .neutrals-row{grid-template-columns:1fr 1fr;gap:8px}
+  
+  /* FONT GRID */
+  .fonts-grid{grid-template-columns:1fr;gap:12px;margin-top:14px}
+  .font-card{padding:24px 22px;min-height:auto;gap:18px}
+  .font-card .fc-role{font-size:9px;margin-bottom:8px}
+  .font-card .fc-name{font-size:36px}
+  .font-card .fc-spec{font-size:11px}
+  .font-card .fc-demo{font-size:16px}
+  .font-card .fc-note{font-size:10px}
+  
+  /* TYPOGRAPHY HIERARCHY */
+  .typo-stack{gap:10px;margin-top:10px}
+  .typo-row{
+    grid-template-columns:1fr;
+    gap:6px;
+    padding-bottom:10px;
+  }
+  .typo-meta-label{font-size:11px;margin-bottom:2px}
+  .typo-meta-spec{font-size:10px}
+  
+  /* WEB BRANDING */
+  .web-grid{grid-template-columns:1fr;gap:12px;margin-top:14px}
+  .web-section{padding:20px 22px}
+  .web-label{font-size:10px;margin-bottom:14px}
+  .btn-row{gap:10px;margin-bottom:14px}
+  .btn{font-size:12px;padding:9px 18px}
+  .web-divider{font-size:10px;margin:14px 0 10px}
+  .examples-mini-grid{grid-template-columns:1fr;gap:10px;margin-top:14px}
+  .ex-mini{padding:22px 20px;min-height:auto}
+  .ex-mini .ex-pre{font-size:12px}
+  .ex-mini .ex-h{font-size:20px}
+  .ex-mini .ex-t{font-size:12px}
+  .ex-mini .ex-b{font-size:11px;padding:7px 14px}
+  
+  /* PRINT */
+  .print-grid{grid-template-columns:1fr;gap:14px;margin-top:14px}
+  .print-mock{padding:32px 24px;min-height:auto}
+  .print-pre{font-size:18px;margin-bottom:12px}
+  .print-headline{font-size:38px;margin-bottom:16px}
+  .print-text{font-size:13px}
+  .print-bottom{margin-top:24px}
+  .print-bottom img{height:24px}
+  .print-bottom .meta{font-size:9px}
+  .print-rule{padding:14px 16px}
+  .print-rule h4{font-size:10px;margin-bottom:4px}
+  .print-rule p{font-size:11px}
+  
+  /* VIDEO */
+  .video-split{grid-template-columns:1fr;gap:18px;margin-top:14px}
+  .video-mock{max-width:240px;padding:24px 18px}
+  .video-hook{font-size:14px}
+  .video-bottom img{height:18px}
+  .video-bottom .v-claim{font-size:12px}
+  .video-bottom .v-meta{font-size:9px}
+  .video-info{gap:10px}
+  .video-info-card{padding:14px 16px}
+  .video-info-card h4{font-size:10px;margin-bottom:4px}
+  .video-info-card p{font-size:11px}
+  
+  /* KANAL TABLE — convert to stacked cards on mobile */
+  .content > div[style*="grid-template-columns:140px"]{
+    border:none !important;
+    background:transparent !important;
+  }
+  .content > div[style*="grid-template-columns:140px"] > div[style*="grid-template-columns:140px"]{
+    grid-template-columns:1fr !important;
+    background:#fff !important;
+    border:1px solid var(--border) !important;
+    border-radius:10px;
+    margin-bottom:8px;
+    padding:0 !important;
+  }
+  .content > div[style*="grid-template-columns:140px"] > div[style*="grid-template-columns:140px"]:first-child{
+    display:none !important;
+  }
+  .content > div[style*="grid-template-columns:140px"] > div[style*="grid-template-columns:140px"] > div{
+    padding:8px 14px !important;
+    font-size:12px !important;
+    border-bottom:1px solid var(--bl) !important;
+  }
+  .content > div[style*="grid-template-columns:140px"] > div[style*="grid-template-columns:140px"] > div:first-child{
+    background:var(--shell) !important;
+    color:var(--bordeaux) !important;
+    font-weight:700 !important;
+    font-size:13px !important;
+    padding:10px 14px !important;
+  }
+  .content > div[style*="grid-template-columns:140px"] > div[style*="grid-template-columns:140px"] > div:last-child{
+    border-bottom:none !important;
+  }
+  
+  /* DO/DONT */
+  .dd-grid{grid-template-columns:1fr;gap:10px;margin-top:14px}
+  .dd-card{padding:20px 22px}
+  .dd-card h3{font-size:15px;margin-bottom:10px;padding-bottom:8px}
+  .dd-card li{font-size:12px;padding:5px 0 5px 22px}
+  
+  /* CLOSING */
+  .closing{padding:60px 20px !important;min-height:auto;text-align:center}
+  .closing img{height:36px;margin-bottom:20px}
+  .closing .closing-pre{font-size:18px;margin-bottom:14px}
+  .closing h2{font-size:42px;line-height:1.05;margin-bottom:18px}
+  .closing p{font-size:13px}
+  .closing .slide-footer{margin-top:24px;width:calc(100% - 36px)}
 }
 </style>
 </head>
@@ -746,13 +923,20 @@ html,body{background:#0a0a0a;-webkit-font-smoothing:antialiased}
   function scaleSlides(){
     var slides = document.querySelectorAll('.slide');
     var vw = window.innerWidth;
-    var padding = vw < 640 ? 16 : 32;
-    // scale by width to always fit horizontally
+    // Mobile breakpoint: don't scale, let CSS handle the layout natively
+    if (vw < 900) {
+      slides.forEach(function(s){
+        s.style.transform = 'none';
+        s.style.marginBottom = '0';
+      });
+      return;
+    }
+    // Desktop: scale 1920px slides down to fit viewport
+    var padding = 32;
     var scale = Math.min((vw - padding * 2) / 1920, 1);
     slides.forEach(function(s){
       s.style.transform = 'scale(' + scale + ')';
-      // Compensate for the visual height difference after scaling
-      s.style.marginBottom = ((1080 * scale) - 1080 + (vw < 640 ? 12 : 24)) + 'px';
+      s.style.marginBottom = ((1080 * scale) - 1080 + 24) + 'px';
     });
   }
   window.addEventListener('resize', scaleSlides);
